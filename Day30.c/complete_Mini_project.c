@@ -19,7 +19,7 @@
   }
 
   void result(float n){
-    if(n>=30) printf("Pass");
+    if(n>=33) printf("Pass");
     else printf("Fail");
   }
 
@@ -77,7 +77,7 @@
     strcpy(e[1].grade, "A");
     strcpy(e[1].result, "Pass");
 
-    while(option != 5){
+    while(option != 6){
         printf("\nChoose an option: \n");
         printf("1.Add student's marksheet\n");
         printf("2.View student's marksheet\n");
@@ -162,32 +162,32 @@
 
         else if(option == 3){
             float Roll,max=0;
-            int i;
-                for(i=0;i<total_size;i++){
+            int target;
+                for(int i=0;i<total_size;i++){
                     if(max < e[i].percentage){
                         max = e[i].percentage;
-                        Roll = e[i].roll;
+                        target = i;
                     }
                 }
-                printf("\n\n--> Highest mark obtain student details: \n\n");
-                printf("Roll number->%d\n",e[i].roll);
-                printf("Name-> %s\n",e[i].name);
-                printf("Course-> %s\n",e[i].course);
-                printf("Semester-> %s\n\n",e[i].semester);
+                printf("\n\n--> Highest mark obtain student's details: \n\n");
+                printf("Roll number->%d\n",e[target].roll);
+                printf("Name-> %s\n",e[target].name);
+                printf("Course-> %s\n",e[target].course);
+                printf("Semester-> %s\n\n",e[target].semester);
 
-                printf("PPS mark-> %f\n",e[i].pps_mark);
-                printf("EVS mark-> %f\n",e[i].evs_mark);
-                printf("Maths mark-> %f\n",e[i].math_mark);
-                printf("Electronics mark-> %f\n",e[i].electronics_mark);
-                printf("Physics mark-> %f\n\n",e[i].physics_mark);
+                printf("PPS mark-> %f\n",e[target].pps_mark);
+                printf("EVS mark-> %f\n",e[target].evs_mark);
+                printf("Maths mark-> %f\n",e[target].math_mark);
+                printf("Electronics mark-> %f\n",e[target].electronics_mark);
+                printf("Physics mark-> %f\n\n",e[target].physics_mark);
 
-                e[i].total = total(e[i].pps_mark, e[i].evs_mark, e[i].math_mark, e[i].electronics_mark, e[i].physics_mark);
-                printf("Total mark-> %f\n",e[i].total);
-                e[i].percentage = percentage(e[i].pps_mark, e[i].evs_mark, e[i].math_mark, e[i].electronics_mark, e[i].physics_mark);
-                printf("Percentage-> %f\n",e[i].percentage);
-                printf("Grade-> %c\n",grade(e[i].percentage));
+                e[target].total = total(e[target].pps_mark, e[target].evs_mark, e[target].math_mark, e[target].electronics_mark, e[target].physics_mark);
+                printf("Total mark-> %f\n",e[target].total);
+                e[target].percentage = percentage(e[target].pps_mark, e[target].evs_mark, e[target].math_mark, e[target].electronics_mark, e[target].physics_mark);
+                printf("Percentage-> %f\n",e[target].percentage);
+                printf("Grade-> %c\n",grade(e[target].percentage));
                 printf("Result-> ");
-                result(e[i].percentage);
+                result(e[target].percentage);
                 printf("\n");
                     
             }
